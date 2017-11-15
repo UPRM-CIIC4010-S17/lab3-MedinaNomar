@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.Polygon;
+import java.awt.Rectangle;
 
 import javax.swing.JPanel;
  
@@ -26,7 +27,7 @@ public class MyPanelClass extends JPanel {
                         int centerHeight = (getHeight() / 2) - 27;
  
                         //Paint the background
-                        g.setColor(Color.BLUE);
+                        g.setColor(Color.RED);
                         g.fillRect(x1, y1, width + 1, height + 1);
                         
 //                        //Draw a border
@@ -59,6 +60,21 @@ public class MyPanelClass extends JPanel {
 //                          p.addPoint(x1 + 15, y1 + 25);
 //                          g.setColor(Color.YELLOW);
 //                          g.fillPolygon(p);
+                        //Fill in rectangles
+                        Rectangle r = new Rectangle();
+                        g.setColor(Color.WHITE);
+                        g.fillRect(x1, y1 + 32, getWidth(), 32);
+                        
+                        r.translate(x1, y1 + 32);
+                        g.fillRect(x1, y1 + 96, getWidth(), 32);
+                            //Fill the triangle
+                        	Polygon p = new Polygon();
+                        	p.addPoint(x1, y1);
+                        	p.addPoint(x1 + 118, y1 + 80);
+                        	p.addPoint(x1 , y2);
+                        	g.setColor(Color.BLUE);
+                        	g.fillPolygon(p);
+                        	
                             
                             //Draw a star
                             Polygon p2 = new Polygon();
@@ -74,6 +90,7 @@ public class MyPanelClass extends JPanel {
                             p2.addPoint(x1 + 38, y1 + 83);
                             g.setColor(Color.WHITE);
                             g.fillPolygon(p2);
+                            
                         
             }
 }
